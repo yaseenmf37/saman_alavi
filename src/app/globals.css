@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::placeholder {
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* globals.css */
+
+:root {
+  --font-body: "IranSans", sans-serif;
+}
+
+html[lang="en"] {
+  --font-body: "Lato", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}

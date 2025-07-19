@@ -1,0 +1,28 @@
+{
+  "logo": "logo",
+  "home": "home",
+  "services": "services",
+  "courses": "courses",
+  "store": "store",
+  "about": "about",
+  "contact": "contact",
+  "blog": "blog",
+  "gallery": "gallery",
+  "description": "Alavi Institute, the first international and specialized center for Caucasian music and performing arts (Turkic Azerbaijani), in collaboration with countries of the Caucasus region, with branches abroad",
+  "concert": "concert",
+  "album": "album",
+  "certificate": "certificate",
+  "hall": "hall",
+  "concert_desc": "Live music and dance performances with international artists.",
+  "album_desc": "Producing professional-quality albums and music videos with international collaboration.",
+  "certificate_desc": "Issuing local, international, and instructor certificates.",
+  "hall_desc": "Equipped hall for concerts, workshops, and special events.",
+  "galleryDescription": "In this section, you can view special moments from concerts, workshops, and events at Saman Alavi Academy.",
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry! The page you’re looking for doesn’t exist or might have been moved.",
+    "backHome": "Back to Home"
+  },
+  "search": "search",
+  "": ""
+}
