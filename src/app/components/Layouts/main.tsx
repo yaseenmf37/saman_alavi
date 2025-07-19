@@ -5,7 +5,7 @@ import image from "../../../../public/images/saman_alavi.png";
 import { useLocale, useTranslations } from "next-intl";
 import "flag-icons/css/flag-icons.min.css";
 
-const main = () => {
+const Main = () => {
   // const Locale = useLocale();
   const t = useTranslations();
   const flagsImage = [
@@ -150,4 +150,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default Main;
