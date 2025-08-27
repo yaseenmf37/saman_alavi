@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import "../../app/globals.css";
 import ChakraProviders from "../providers/ChakraProvider";
 import HeaderLayout from "../components/Layouts/HeaderLayout";
+import FloatingCTA from "../components/FloatingCTA";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -36,6 +37,7 @@ export default async function LocaleRootLayout({
             <div className="bg-[#000000ed] backdrop-blur-[10rem] min-h-screen">
               <HeaderLayout />
               {children}
+              <FloatingCTA />
             </div>
           </NextIntlClientProvider>
         </ChakraProviders>

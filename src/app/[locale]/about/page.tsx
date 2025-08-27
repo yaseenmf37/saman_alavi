@@ -78,11 +78,11 @@ export default function AboutPage() {
             : "Honors & International Collaboration"}
         </h2>
         <div className="flex gap-[12px] flex-wrap">
-          <div className="flex space-x-2 mt-[1rem]">
+          <div className="flex space-x-2 mt-[1rem] w-full max-[767px]:justify-between justify-center">
             {flagsImage.map((flagImage) => (
               <span
                 key={flagImage.class}
-                className={`${flagImage.class} !w-[4rem] h-[2rem]`}
+                className={`${flagImage.class} !w-[4rem] max-[767px]:!w-[3rem] h-[2rem]`}
               ></span>
             ))}
           </div>

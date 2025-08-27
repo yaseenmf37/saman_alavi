@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import image from "../../../../public/images/saman_alavi.png";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import "flag-icons/css/flag-icons.min.css";
 
 const Main = () => {
@@ -18,7 +18,7 @@ const Main = () => {
   ];
   return (
     <main className="h-[calc(100vh-60px)] flex justify-center">
-      <div className="relative w-[500px] h-full">
+      <div className="relative w-[640px] h-full">
         {/* عکس */}
         <Image src={image} alt="Saman Alavi" fill className="object-cover" />
 
@@ -140,7 +140,7 @@ const Main = () => {
             {flagsImage.map((flagImage) => (
               <span
                 key={flagImage.class}
-                className={`${flagImage.class} !w-[4rem] max-[767px]:!w-[3rem]  h-[2rem]`}
+                className={`${flagImage.class} !w-[4rem] max-[767px]:!w-[3rem] h-[2rem]`}
               ></span>
             ))}
           </div>

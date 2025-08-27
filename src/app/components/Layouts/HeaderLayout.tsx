@@ -44,12 +44,8 @@ const HeaderLayout = () => {
       {/* هدر بالا */}
       <header className="flex items-center justify-between px-[20px] py-[12px] bg-[#000] text-white relative z-30">
         {/* لوگو */}
-        <Link
-          href={`/${locale}/`}
-          className="text-[#fff] text-[28px] font-extrabold tracking-[0.05em] px-[12px] py-[6px] rounded-[1rem] bg-[#ffffff1a] hover:bg-[#ffffff33] transition duration-[500ms]"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {t("logo")}
+        <Link href={`/${locale}/`} onClick={() => setIsMenuOpen(false)}>
+          <img src="/logo.png" alt={t("logo")} className="w-[120px] h-[70px]" />
         </Link>
         {/* serch box */}
         <div className="min-w-[30%] flex items-center mx-[1rem] flex-1 max-w-[300px] relative">
