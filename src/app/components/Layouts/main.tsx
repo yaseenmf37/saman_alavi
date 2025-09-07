@@ -4,6 +4,8 @@ import Image from "next/image";
 import image from "../../../../public/images/saman_alavi.png";
 import { useTranslations } from "next-intl";
 import "flag-icons/css/flag-icons.min.css";
+import Counter from "../Counter";
+import TestimonialSlider from "../TestimonialSlider";
 
 const Main = () => {
   // const Locale = useLocale();
@@ -16,6 +18,8 @@ const Main = () => {
     { class: "fi fi-ru" },
     { class: "fi fi-az" },
   ];
+
+  const size = window.innerWidth > 1300 ? "-webkit-fill-available" : "";
   return (
     <main className="h-[calc(100vh-60px)] flex justify-center">
       <div className="relative w-[640px] h-full">
@@ -134,7 +138,6 @@ const Main = () => {
               />
             </svg>
           </div>
-
           {/* پرچم‌ها */}
           <div className="flex space-x-2 mt-[1rem]">
             {flagsImage.map((flagImage) => (
@@ -145,6 +148,49 @@ const Main = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div
+        style={{ height: "-webkit-fill-available" }}
+        className="
+    py-[96px] px-[24px]
+    fixed left-[0] w-auto
+  "
+      >
+        <div className="max-[1300px]:fixed left-[0] max-[1300px]:top-0 [1300px]:bottom-[0] max-[1300px]:flex">
+          <Counter
+            label="بازدیدها"
+            startValue={500} // عدد شروع
+            duration={2500} // زمان انیمیشن بالا رفتن
+            intervalHours={4} // هر چند ساعت یک بار رشد کنه (اختیاری، دیفالت ۴ هست)
+            className="max-[1300px]:flex-shrink-0 w-[300px]"
+          />
+
+          {window.innerWidth > 1300 && (
+            <Counter
+              label="ایتم 2"
+              startValue={500} // عدد شروع
+              duration={1500} // زمان انیمیشن بالا رفتن
+              intervalHours={6} // هر چند ساعت یک بار رشد کنه (اختیاری، دیفالت ۴ هست)
+              className="max-[1300px]:flex-shrink-0 w-[300px]"
+            />
+          )}
+          {window.innerWidth > 1300 && (
+            <Counter
+              label="ایتم 3"
+              startValue={500} // عدد شروع
+              duration={500} // زمان انیمیشن بالا رفتن
+              intervalHours={8} // هر چند ساعت یک بار رشد کنه (اختیاری، دیفالت ۴ هست)
+              className="max-[1300px]:flex-shrink-0 w-[300px]"
+            />
+          )}
+        </div>
+      </div>
+
+      <div
+        // style={{ height: size }}
+        className="fixed min-[1300px]:right-[0] w-[350px] bottom-[120px]"
+      >
+        <TestimonialSlider />
       </div>
     </main>
   );

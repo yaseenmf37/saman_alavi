@@ -2,13 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 export default function FloatingCTA() {
   const t = useTranslations();
-
   const locale = useLocale();
+  const [isMobile, setIsMobile] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const options = [
     {
       label: "concert",
@@ -33,22 +36,30 @@ export default function FloatingCTA() {
       href: `/${locale}/services/hall`,
       xOffset: -50,
       yOffset: -80 + -50,
-    }, // بالا از دایره
+    },
   ];
-  const [hovered, setHovered] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHovered(true);
-  };
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setHovered(false);
-    }, 0); // تاخیر قبل از بسته شدن
+    timeoutRef.current = setTimeout(() => setHovered(false), 0);
   };
+
   const a = locale === "fa" ? 1 : -1;
+
+  const handleCentralClick = (e: React.MouseEvent) => {
+    if (isMobile) {
+      e.preventDefault(); // جلوگیری از رفتن به لینک
+      setHovered(!hovered); // باز/بسته کردن منو
+    }
+  };
+
   return (
     <div
       onMouseEnter={handleMouseEnter}
@@ -58,9 +69,16 @@ export default function FloatingCTA() {
       } z-[50] flex flex-col items-start justify-center h-[220px] w-[220px]`}
     >
       <div className="relative">
-        {/* دایره اصلی */}
-        <div className="w-[4rem] h-[4rem] rounded-full [background-color:#FFD700] flex items-center justify-center cursor-pointer [box-shadow:0_4px_6px_rgba(0,0,0,0.1)]">
-          <Link href={`/${locale}/services`} className="text-[12px] font-[700]">
+        {/* دایره مرکزی */}
+        <div
+          onClick={handleCentralClick}
+          className="w-[4rem] h-[4rem] rounded-full [background-color:#FFD700] flex items-center justify-center cursor-pointer [box-shadow:0_4px_6px_rgba(0,0,0,0.1)]"
+        >
+          <Link
+            href={`/${locale}/services`}
+            className="text-[12px] font-[700]"
+            onClick={(e) => isMobile && e.preventDefault()}
+          >
             {t("services")}
           </Link>
         </div>

@@ -83,12 +83,16 @@ export default function GalleryPage() {
     <main className="max-w-[1400px] mx-auto py-[3rem]">
       {/* اسلایدر */}
       <div className="relative w-full h-[50vh] [767px]:h-[70vh] overflow-hidden mb-[32px] max-w-[93%] m-auto">
+        <h1 className="text-[white] mb-[18px]">دیدار ها</h1>
         {slides.map((slide, index) => (
           <img
             key={slide.id}
             src={slide.src}
             alt={`Slide ${index + 1}`}
-            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-[1000ms] rounded-[12px] ${
+            style={{
+              height: "-webkit-fill-available",
+            }}
+            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-[1000ms] rounded-[16px] ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           />
